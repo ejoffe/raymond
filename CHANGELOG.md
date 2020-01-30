@@ -2,6 +2,9 @@
 
 ### HEAD
 
+### Raymond 2.0.3 _(Jan 30, 2020)_
+
+- [IMPROVEMENT] Iterate map keys in ordered fashion
 - [IMPROVEMENT] Add `RemoveHelper` and `RemoveAllHelpers` functions
 
 ### Raymond 2.0.2 _(March 22, 2018)_
