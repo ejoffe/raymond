@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"reflect"
+	"sort"
 	"sync"
 )
 
@@ -339,8 +340,21 @@ func eachHelper(context interface{}, options *Options) interface{} {
 			result += options.evalBlock(val.Index(i).Interface(), data, i)
 		}
 	case reflect.Map:
-		// note: a go hash is not ordered, so result may vary, this behaviour differs from the JS implementation
 		keys := val.MapKeys()
+		fmt.Println(keys)
+		sort.SliceStable(keys, func(i, j int) bool {
+			iv := keys[i].Interface()
+			jv := keys[j].Interface()
+			fmt.Printf("iv:%T:%v jv:%T:%v\n", iv, iv, jv, jv)
+			switch iv.(type) {
+			case int:
+				return iv.(int) < jv.(int)
+			case string:
+				return iv.(string) < jv.(string)
+			default:
+				panic(fmt.Errorf("unsupported key type %T", iv))
+			}
+		})
 		for i := 0; i < len(keys); i++ {
 			key := keys[i].Interface()
 			ctx := val.MapIndex(keys[i]).Interface()
