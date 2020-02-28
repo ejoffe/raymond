@@ -2,6 +2,10 @@
 
 ### HEAD
 
+### Raymond 0.2.4 _(February 28, 2020)_
+
+- [IMPROVEMENT] Remove annoying printfs
+
 ### Raymond 0.2.3 _(Jan 30, 2020)_
 
 - [IMPROVEMENT] Iterate map keys in ordered fashion
