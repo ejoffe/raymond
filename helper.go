@@ -341,11 +341,9 @@ func eachHelper(context interface{}, options *Options) interface{} {
 		}
 	case reflect.Map:
 		keys := val.MapKeys()
-		fmt.Println(keys)
 		sort.SliceStable(keys, func(i, j int) bool {
 			iv := keys[i].Interface()
 			jv := keys[j].Interface()
-			fmt.Printf("iv:%T:%v jv:%T:%v\n", iv, iv, jv, jv)
 			switch iv.(type) {
 			case int:
 				return iv.(int) < jv.(int)
